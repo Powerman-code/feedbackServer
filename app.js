@@ -2,6 +2,7 @@ const express = require("express");
 const logger = require("morgan");
 const cors = require("cors");
 
+const { HttpCode } = require("./helpers/constants");
 const feedbackRouter = require("./routes/api/feedback");
 
 const app = express();
@@ -15,11 +16,20 @@ app.use(express.json());
 app.use("/api/feedback", feedbackRouter);
 
 app.use((req, res) => {
-  res.status(404).json({ message: "Not found" });
+  res.status(HttpCode.NOT_FOUND).json({
+    status: "error",
+    code: HttpCode.NOT_FOUND,
+    message: "Not found",
+  });
 });
 
 app.use((err, req, res, next) => {
-  res.status(500).json({ message: err.message });
+  const status = err.status || HttpCode.INTERNAL_SERVER_ERROR;
+  res.status(status).json({
+    status: status === HttpCode.INTERNAL_SERVER_ERROR ? "fail" : "error",
+    code: status,
+    message: err.message,
+  });
 });
 
 module.exports = app;

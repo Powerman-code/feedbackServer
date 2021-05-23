@@ -22,8 +22,8 @@ const validate = (schema, obj, next) => {
   next();
 };
 
-module.exports.createFeedback = (req, _res, next) => {
-  return validate(schemaCreateFeedback, req.body, next);
+module.exports.createFeedback = async (req, _res, next) => {
+  return await validate(schemaCreateFeedback, req.body, next);
 };
 
 // module.exports.updateContact = (req, _res, next) => {
