@@ -1,0 +1,14 @@
+{
+  "feedbacks": [
+    {
+      "id": "7560e01a-1a0f-4d6b-8c8a-969816c80fab",
+      "name": "t",
+      "text": "some text"
+    },
+    {
+      "id": "3c7d9151-cad0-4a3b-983e-3ce5e8095b85",
+      "name": "test",
+      "text": "some text"
+    }
+  ]
+}
