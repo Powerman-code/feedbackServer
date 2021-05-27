@@ -8,7 +8,7 @@ const getAll = async (req, res, next) => {
     return res.status(HttpCode.OK).json({
       status: "success",
       code: HttpCode.OK,
-      data: { ...allFeedbacks },
+      data: [...allFeedbacks],
     });
   } catch (e) {
     next(e);
