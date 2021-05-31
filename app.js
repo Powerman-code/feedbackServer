@@ -4,6 +4,7 @@ const cors = require("cors");
 
 const { HttpCode } = require("./helpers/constants");
 const feedbackRouter = require("./routes/api/feedback");
+const tempMessageRouter = require("./routes/api/tempMessage");
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/feedback", feedbackRouter);
+app.use("/api/tempMessage", tempMessageRouter);
 
 app.use((req, res) => {
   res.status(HttpCode.NOT_FOUND).json({

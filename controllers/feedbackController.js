@@ -32,8 +32,8 @@ const create = async (req, res, next) => {
   }
 };
 
-const update = async (req, res, next) => {
-  const record = db.g;
+const createTemporraryMessage = async (req, res, next) => {
+  const tempRecord = db.g;
   try {
   } catch (error) {
     next(error);
