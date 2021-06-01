@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const tempMessageController = require("../../controllers/tempMessageController");
-// const validate = require("./validation");
+const validate = require("./validationTempMessage");
 
 router
   .get("/", tempMessageController.getMessage)
@@ -10,5 +10,5 @@ router
   //     // validate.createTempMessage,
   //     tempMessageController.create)
 
-  .patch("/", tempMessageController.updateMessage);
+  .patch("/", validate.updateTempMessage, tempMessageController.updateMessage);
 module.exports = router;
