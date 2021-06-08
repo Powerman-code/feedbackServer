@@ -15,14 +15,7 @@ const create = async (body) => {
   return record;
 };
 
-// const update = async (id, body) => {
-//   const record = await db.get("feedbacks").find({ id }).assign(body).value();
-//   db.write();
-//   return record.id ? record : null;
-// };
-
 module.exports = {
   getFeedbacks,
   create,
-  // update,
 };

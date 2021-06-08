@@ -5,11 +5,6 @@ const schemaCreateFeedback = Joi.object({
   text: Joi.string().min(1).max(300).required(),
 });
 
-// const schemaUpdateFeedback = Joi.object({
-//   name: Joi.string().alphanum().min(1).max(30).optional(),
-//   text: Joi.string().min(1).max(300).optional(),
-// });
-
 const validate = (schema, obj, next) => {
   const { error } = schema.validate(obj);
   if (error) {
@@ -25,7 +20,3 @@ const validate = (schema, obj, next) => {
 module.exports.createFeedback = async (req, _res, next) => {
   return await validate(schemaCreateFeedback, req.body, next);
 };
-
-// module.exports.updateContact = (req, _res, next) => {
-//   return validate(schemaUpdateFeedback, req.body, next);
-// };
